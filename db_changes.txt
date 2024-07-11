@@ -1,0 +1,100 @@
+Company Type Table:
+
+
+CREATE TABLE `invoices_saas`.`company_type` (`id` INT NOT NULL AUTO_INCREMENT , `type` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+INSERT INTO company_type (type) VALUES ('Private Limited Company'), ('Public Limited Company'), ('Sole Proprietorship'), ('Partnership'), ('Limited Liability Company'), ('Cooperative'), ('Nonprofit Organization'), ('State-Owned Enterprise'), ('Franchise');
+
+
+ALTER TABLE `users` ADD `company_name` VARCHAR(255) NULL AFTER `contact`, ADD `company_type` INT NULL AFTER `company_name`;
+
+-------------------------------------------------------------------------------------------------------------------
+
+OTP Tables:
+
+
+CREATE TABLE `invoices_saas`.`otp_email` (`id` INT NOT NULL AUTO_INCREMENT , `email` VARCHAR(255) NOT NULL , `otp` INT NOT NULL , `otp_verified` ENUM('1','0') NOT NULL DEFAULT '0' , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `invoices_saas`.`otp_mobile` (`id` INT NOT NULL AUTO_INCREMENT , `mobile` VARCHAR(255) NOT NULL , `otp` INT NOT NULL , `otp_verified` ENUM('1','0') NOT NULL DEFAULT '0' , `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `otp_email` ADD `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NULL DEFAULT NULL AFTER `created_at`;
+ALTER TABLE `otp_mobile` ADD `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NULL DEFAULT NULL AFTER `created_at`;
+
+-------------------------------------------------------------------------------------------------------------------
+User Table:
+
+
+ALTER TABLE `users` ADD `mobile_verified_at` TIMESTAMP NULL AFTER `email_verified_at`;
+
+
+ALTER TABLE `users` ADD `email_verified` ENUM('0','1') NOT NULL DEFAULT '0' AFTER `dark_mode`, ADD `mobile_verified` ENUM('0','1') NOT NULL DEFAULT '0' AFTER `email_verified`;
+
+
+ALTER TABLE `users` ADD `company_address` VARCHAR(255) NULL AFTER `company_type`;
+
+
+ALTER TABLE `users` CHANGE `region_code` `region_code` VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL AFTER `contact`
+
+
+Company Address:
+233 Yadira Squares, Gusikowskimouth
+Nevada - 72396-5786
+
+
+ALTER TABLE `users` ADD `whatsapp_number` VARCHAR(255) NULL AFTER `contact`;
+
+-------------------------------------------------------------------------------------------------------------------
+Shipping & Billing Address Table:
+
+
+CREATE TABLE `invoices_saas`.`shipping_address_tbl` (`id` BIGINT NOT NULL AUTO_INCREMENT , `shipping_address1` VARCHAR(255) NULL , `shipping_address2` VARCHAR(255) NULL , `shipping_country_id` INT NULL , `shipping_state_id` INT NULL , `shipping_city_id` INT NULL , `shipping_postal_code` VARCHAR(255) NULL , `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP , `created_at` TIMESTAMP NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `invoices_saas`.`billing_address_tbl` (`id` BIGINT NOT NULL AUTO_INCREMENT , `billing_address1` VARCHAR(255) NULL , `billing_address2` VARCHAR(255) NULL , `billing_country_id` INT NULL , `billing_state_id` INT NULL , `billing_city_id` INT NULL , `billing_postal_code` VARCHAR(255) NULL , `updated_at` TIMESTAMP on update CURRENT_TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP , `created_at` TIMESTAMP NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `billing_address_tbl` ADD `user_id` BIGINT NOT NULL AFTER `id`;
+ALTER TABLE `shipping_address_tbl` ADD `user_id` BIGINT NOT NULL AFTER `id`;
+
+-------------------------------------------------------------------------------------------------------------------
+Client Table:
+
+
+ALTER TABLE `clients` ADD `gstin` VARCHAR(255) NULL AFTER `note`, ADD `discount` INT NULL COMMENT 'in %' AFTER `gstin`, ADD `cc_email` VARCHAR(255) NULL AFTER `discount`;
+
+
+ALTER TABLE `clients` ADD `customer_code` VARCHAR(255) NULL AFTER `tenant_id`;
+
+-------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE `invoices_saas`.`custom_fields` (`id` BIGINT NOT NULL AUTO_INCREMENT , `user_id` BIGINT NULL , `field_label` VARCHAR(255) NULL , `field_type` VARCHAR(255) NULL , `field_id` VARCHAR(255) NULL , `field_name` VARCHAR(255) NULL , `field_option` VARCHAR(255) NULL , `field_value` VARCHAR(255) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+CREATE TABLE `invoices_saas`.`custom_field_value` (`id` BIGINT NOT NULL AUTO_INCREMENT , `user_id` BIGINT NOT NULL , `cf_id` BIGINT NOT NULL COMMENT 'tbl: custom_field (id)' , `value` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `custom_fields` ADD `is_required` ENUM('0','1') NULL DEFAULT '0' AFTER `field_name`;
+
+
+CREATE TABLE `invoices_saas`.`field_types` (`id` INT NOT NULL AUTO_INCREMENT , `type` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+ALTER TABLE `field_types` ADD `type_name` VARCHAR(255) NOT NULL AFTER `id`;
+
+
+ALTER TABLE `clients` ADD `custom_details` JSON NULL AFTER `cc_email`;
+
+
+ALTER TABLE `super_admin_enquiries` ADD `phone` VARCHAR(255) NULL AFTER `email`;
+
+-------------------------------------------------------------------------------------------------------------------
+
+Not Updated:
+
+ALTER TABLE `invoice-settings` ADD `status` ENUM('1','0') NOT NULL DEFAULT '1' AFTER `tenant_id`;
+
+ALTER TABLE `invoice-settings` ADD `template_fields` JSON NULL DEFAULT NULL AFTER `template_color`;
+

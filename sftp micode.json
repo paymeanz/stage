@@ -1,0 +1,12 @@
+{
+    "name": "Paymeanz Micodetest",
+    "host": "181.215.242.161",
+    "protocol": "ftp",
+    "port": 21,
+    "username": "micodetest_paymeanz@micodetest.com",
+    "password": "Paymeanz@2023",
+    "remotePath": "/",
+    "uploadOnSave": false,
+    "useTempFile": false,
+    "openSsh": false
+}

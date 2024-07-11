@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="images/favicon.png" rel="icon" />
+    <title>Paymeanz - Invoice</title>
+    <meta name="author" content="harnishdesign.net" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/font-awesome/css/all.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+  </head>
+
+  <body>
+    <!-- Container -->
+    <div class="container-fluid invoice-container">
+      <!-- Header -->
+      <header>
+        <div class="row align-items-center">
+          <div class="col-12 text-center mb-2">
+            <h4 class="mb-0">TAX INVOICE</h4>
+            <p class="mb-2">Invoice Number - 16835</p>
+          </div>
+          <div class="col-sm-3 text-md-start text-center">
+            <img id="logo" src="images/logo.png" class="img-fluid" />
+          </div>
+          <div class="col-sm-9 text-md-end text-center">
+            <p class="fw-bold mb-0">GSTIN 07AAGFF2194N1Z1</p>
+            <address class="mb-0">
+              64, Whitefield Main Rd <br />
+              Palm Meadows, KARNATAKA, 560066
+            </address>
+            <a href="tel:1234567890">+91 1234567890</a>
+          </div>
+        </div>
+        <hr />
+      </header>
+      <!-- Main Content -->
+      <main>
+        <div class="row mb-4">
+          <div class="col-sm-6 text-sm-end order-sm-1">
+            <div class="mb-3">
+              <strong>Payment Method : </strong><span>Credit Card</span>
+            </div>
+            <div class="mb-3">
+              <strong>Invoice Date : </strong><span>07/07/2023</span>
+            </div>
+          </div>
+          <div class="col-sm-6 order-sm-0">
+            <strong>Invoiced To:</strong>
+            <p class="mb-0">Nishanta</p>
+            <address class="mb-0">
+              64, Whitefield Main Rd Ben luru, <br />
+              29-KARNATAKA, 560066
+            </address>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table mb-0">
+                <thead>
+                  <tr class="card-header">
+                    <td><strong>#</strong></td>
+                    <td><strong>Item</strong></td>
+                    <td><strong>HSN/SAC</strong></td>
+                    <td><strong>Tax</strong></td>
+                    <td><strong>Qty</strong></td>
+                    <td><strong>Rate/Item</strong></td>
+                    <td><strong>Amount</strong></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Colgate 200 gm fresh gel</td>
+                    <td class="text-center">19059090</td>
+                    <td class="text-center">18%</td>
+                    <td class="text-center">2</td>
+                    <td class="text-center">&#8377; 87.71</td>
+                    <td class="text-center">&#8377; 18.05</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Surf Excel Easy Wash Detergent Powder 1 kg</td>
+                    <td class="text-center">3300</td>
+                    <td class="text-center">18%</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">&#8377; 73.90</td>
+                    <td class="text-center">&#8377; 122.03</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Haldiram Bhujia Sev</td>
+                    <td class="text-center">-</td>
+                    <td class="text-center">15%</td>
+                    <td class="text-center">5</td>
+                    <td class="text-center">&#8377; 73.90</td>
+                    <td class="text-center">&#8377; 1820.23</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Premium Mejdool Dates</td>
+                    <td class="text-center">3300</td>
+                    <td class="text-center">-</td>
+                    <td class="text-center">4</td>
+                    <td class="text-center">&#8377; 73.90</td>
+                    <td class="text-center">&#8377; 727.09</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Britania Whole Wheat Bread</td>
+                    <td class="text-center">3401</td>
+                    <td class="text-center">12%</td>
+                    <td class="text-center">3</td>
+                    <td class="text-center">&#8377; 127.12</td>
+                    <td class="text-center">&#8377; 140.14</td>
+                  </tr>
+                  <tr>
+                    <td colspan="5" class="text-center fw-bold">Total</td>
+                    <td colspan="2" class="text-end fw-bold">&#8377;24,750</td>
+                  </tr>
+                  <tr>
+                    <td colspan="7" class="text-center">
+                      Amount Chargeable (in words): if INR Twenty Thousand Seven
+                      Hundred Fifty Rupees Only. <strong> E & O.E</strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="row p-4">
+                  <div class="col-sm-7">
+                    <h6>Bank Details:</h6>
+                    <p class="mb-0">Bank: <strong>Yes Bank</strong></p>
+                    <p class="mb-0">
+                      Account Number: <strong>1234567980</strong>
+                    </p>
+                    <p class="mb-0">IFSC Code: <strong>YESBBIN1234</strong></p>
+                    <p class="mb-0">Branch: <strong>Kodihalli</strong></p>
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="qr text-md-center text-start">
+                      <p class="mb-0 text-md-center text-start">
+                        Pay Using UPI
+                      </p>
+                      <img
+                        src="images/qr-code.png"
+                        class="img-fluid qr-code"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-5 py-3 px-3">
+                <h6>Terms & Conditions</h6>
+                <ol class="ps-3">
+                  <li>Once sold cannot taken back or exchanged.</li>
+                  <li>
+                    We are not the manufacturers, company will stand warranty as
+                    per their terms and conditions
+                  </li>
+                  <li>
+                    Interest@24% p_a_ will charged for uncleared bill beyond 15
+                    days.
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Footer -->
+    </div>
+    <footer class="text-center pt-4 mb-3">
+      <div class="btn-group btn-group-sm d-print-none">
+        <a
+          href="javascript:window.print()"
+          class="btn btn-light border text-black-50 shadow-none"
+        >
+          <i class="fa fa-print"></i> Print</a
+        >
+        <a
+          href=""
+          id="tm_download_btn"
+          class="btn btn-light border text-black-50 shadow-none tm_invoice_btn"
+          ><i class="fa fa-download"></i> Download</a
+        >
+      </div>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jspdf.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+listenChange('.is-verified-mobile', function (event) {
+    let userId = $(event.currentTarget).attr('data-id')
+    $.ajax({
+        url: route('users.mobile_verified', userId),
+        method: 'post',
+        cache: false,
+        success: function (result) {
+            if (result.success) {
+                displaySuccessMessage(result.message)
+                window.livewire.emit('resetPageTable')
+            }
+        },
+    })
+})
+
+---------------------------------------------------------------------------------------------------
+vendor\rappasoft\laravel-livewire-tables\src\Traits\WithColumnSelect.php -> $selectedColumns
+vendor\rappasoft\laravel-livewire-tables\src\Views\Traits\Helpers\ColumnHelpers.php -> getHash()
+
+---------------------------------------------------------------------------------------------------
+ashish@maishainfotech.com
+testclient1@gmail.com
+
+---------------------------------------------------------------------------------------------------
+Array
+(
+    [_token] => mPOec1iViae3ItAMcvvodyQNi0YkRrT3dPQuh9ZW
+    [customer_code] => 1
+    [first_name] => Test
+    [last_name] => Client 1
+    [email] => test33@gmail.com
+    [contact] => 2412341324
+    [region_code] => 91
+    [billing_address1] => sdafacsdac
+    [billing_address2] => sdasds
+    [billing_country_id] => 2
+    [billing_state_id] => 76
+    [billing_city_id] => 6023
+    [billing_postal_code] => 213123
+    [shipping_address1] =>
+    [shipping_address2] =>
+    [shipping_country_id] =>
+    [shipping_state_id] =>
+    [shipping_postal_code] =>
+    [company_name] => sdcsadc
+    [gstin] => wedewd
+    [company_address] => swDWWEWAE
+    [note] => dsacasdsda
+    [cc_email] => testclient1@gmail.com,testclient1@gmail.com,testclient1@gmail.com
+    [discount] => 10
+    [whatsapp_number] => 21312423143
+    [password] => $2y$10$XAObR5clGSJxByUPDzVZYO8OvEUW/Rqw3nFGLmwXlScfSDbXJIhaW
+    [password_confirmation] => 123456
+    [client_password] => 123456
+    [role] => 3
+    [address] => sdafacsdac
+    [country_id] => 2
+    [state_id] => 76
+    [city_id] => 6023
+    [postal_code] => 213123
+)
